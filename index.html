@@ -6,29 +6,31 @@
 		}
 		.img {
 			position: absolute;
-			left: 380px;
-			top: 125px;
+			left: 50px;
+			top: 55px;
+			overflow: hidden;
 		}
 
 		.i0 {
-			clip: rect(0px, 234px, 234px, 0px);
+			clip: rect(0px, 230px, 306px, 0px);
 		}
 		.i1 {
-			clip: rect(0px, 468px, 234px, 234px);
-			transform: translateX(-234px);
+			clip: rect(0px, 445px, 306px, 230px);
+			transform: translateX(-230px);
 		}
 		.i2 {
-			clip: rect(0px, 702px, 234px, 468px);
-			transform: translateX(-468px);
+			clip: rect(0px, 705px, 306px, 445px);
+			transform: translateX(-460px);
 		}
 		.i3 {
-			clip: rect(0px, 468px, 234px, 234px);
-			transform: translateX(-234px);
+			clip: rect(0px, 445px, 306px, 230px);
+			transform: translateX(-230px);
 		}
 		.background {
 			width: 650px;
 			height: 353px;
 			position: absolute;
+			overflow: hidden;
 		}
 	</style>
 	  
@@ -75,7 +77,7 @@
 			  }
 		  };
 		}
-		var throttledKick = throttle(kick, 5 * interval);
+		var throttledKick = throttle(kick, 4 * interval);
 	</script>
 	
 	</body>
