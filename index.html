@@ -1,0 +1,82 @@
+<html>
+	<head>
+	  <style>
+		body {
+			overflow: hidden;
+		}
+		.img {
+			position: absolute;
+			left: 380px;
+			top: 125px;
+		}
+
+		.i0 {
+			clip: rect(0px, 234px, 234px, 0px);
+		}
+		.i1 {
+			clip: rect(0px, 468px, 234px, 234px);
+			transform: translateX(-234px);
+		}
+		.i2 {
+			clip: rect(0px, 702px, 234px, 468px);
+			transform: translateX(-468px);
+		}
+		.i3 {
+			clip: rect(0px, 468px, 234px, 234px);
+			transform: translateX(-234px);
+		}
+		.background {
+			width: 650px;
+			height: 353px;
+			position: absolute;
+		}
+	</style>
+	  
+
+
+	</head>
+	<body onkeypress="throttledKick()" onclick="throttledKick()">
+
+	<audio id="namyo">
+	  <source src="res/namyo.mp3" type="audio/mpeg">
+	</audio>
+	
+	<img class="background" src="res/dn.png" width="1" height="1">
+	<img id="kicker" class="img i0" src="res/pushup.png" >
+
+	  <script>
+	  
+		var namyo = document.getElementById("namyo"); 
+	  
+		var index = 0;
+		var interval = 120;
+		function kick() {
+		  setTimeout(() => {
+
+			if (index++ < 3) {
+				if (index === 1) {
+					namyo.play();
+				}
+				document.getElementById("kicker").className = "img i" + index;
+				kick();
+			} else {
+				index = 0;
+				document.getElementById("kicker").className = "img i0";
+			}
+		  }, interval);
+		}
+		function throttle(func, timeFrame) {
+		  var lastTime = 0;
+		  return function () {
+			  var now = Date.now();
+			  if (now - lastTime >= timeFrame) {
+				  func();
+				  lastTime = now;
+			  }
+		  };
+		}
+		var throttledKick = throttle(kick, 5 * interval);
+	</script>
+	
+	</body>
+</html>
